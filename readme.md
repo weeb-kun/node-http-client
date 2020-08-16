@@ -4,4 +4,4 @@ This is just a small project for testing and experimenting. there are other simi
 
 ## Installation
 
-`npm install http-client`
+`npm install @weebkun/http-client`

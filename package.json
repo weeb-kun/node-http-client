@@ -1,5 +1,5 @@
 {
-  "name": "http-client",
+  "name": "@weebkun/http-client",
   "version": "1.0.0",
   "description": "a http client for node",
   "main": "index.js",
@@ -19,8 +19,5 @@
   "bugs": {
     "url": "https://github.com/weeb-kun/node-http-client/issues"
   },
-  "homepage": "https://github.com/weeb-kun/node-http-client#readme",
-  "dependencies": {
-    "events": "^3.2.0"
-  }
+  "homepage": "https://github.com/weeb-kun/node-http-client#readme"
 }
