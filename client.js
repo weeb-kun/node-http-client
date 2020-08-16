@@ -19,7 +19,16 @@ Copyright 2020 weebkun
 const http = require("http");
 const event = require("events");
 
+/**
+ * Represents a client that can send http requests.
+ */
 class Client{
+    /**
+     * constructor for Client.
+     * @param {boolean} keepAlive - tells the agent to keep connections alive
+     * @param {number} maxSockets - max num of sockets per host
+     * @param {*} maxTotalSockets - max num of sockets in total
+     */
     constructor(keepAlive = false, maxSockets = undefined, maxTotalSockets = undefined){
         this.agent = new http.Agent({
             keepAlive,
@@ -29,10 +38,21 @@ class Client{
         this.emitter = new event.EventEmitter();
     }
     
+    /**
+     * destroys the agent attached to this client.
+     */
     destroy(){
         this.agent.destroy();
     }
 
+    /**
+     * sends a request to specified host, port and path.
+     * emits 'recieved' when response is recieved along with the body of the response.
+     * @param {string} host - the host name
+     * @param {number} [port = 80] - the port to request
+     * @param {string} [method = "GET"] - the http method to use
+     * @param {string} [path = "/"] - the url path
+     */
     request(host, port=80, method = "GET", path="/"){
         const req = http.request({
             agent: this.agent,
